@@ -1,0 +1,6 @@
+1. No, I wug.You wugga wug.I wug. 
+
+2. main->zoop->baffle->ping
+
+3. This will cause an infinite loop, because baffle triggers ping which triggers baffle, thus the program triggers
+itself in this situation.
