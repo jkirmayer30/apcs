@@ -1,3 +1,7 @@
+/*
+Discoveries:none
+Unresolved questions: none
+*/
 public class Greet {
 
 public static void greet(String input){
@@ -8,7 +12,7 @@ public static void main(String[] args){
 System.out.println("no hablo queso");
 greet("jacob");
 greet("josiah");
-greet("ameer")
+greet("ameer");
 }
 
 }
