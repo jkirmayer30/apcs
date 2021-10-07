@@ -1,7 +1,7 @@
 /*
-Apcs Hw 12 Jacob Kirmayer Period 6
-Discoveries:none
-Unresolved questions: none
+Apcs Hw 13 Jacob Kirmayer Period 6
+Disco:none
+cqq: none
 */
 
 public class Bigsib {
