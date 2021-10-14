@@ -5,8 +5,10 @@ Unresolved questions: none
 */
 
 public class Bigsib {
-    public String greeting;
-
+private String greeting;
+    public Bigsib (){
+    greeting = "word up";
+}
     public void setHelloMsg(String message){
         greeting = message;
     }
