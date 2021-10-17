@@ -15,7 +15,7 @@ password = newPassword;
 
 public void printInfo(String pass, int pinn){
 if (pass==password&&pinn==pin){
-System.out.println(name);
+System.out.println("name:"+name+" password:"+password+" pin:"+pin+" accNum:"+accountNumber+" balance:"+accountBalance);
 }
 }
 
@@ -32,7 +32,9 @@ accountBalance -= amt;
 public static void main(String[] args){
 BankAccount richard = new BankAccount();
 richard.setInfo("richard","richard",2,"",1);
-richard.printInfo("ichard",2);
+richard.deposit(1);
+richard.printInfo("richard",2);
+richard.withdraw("richard",2,1);
 }
 }
 
