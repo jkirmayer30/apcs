@@ -73,7 +73,9 @@ public class BankAccount {
 
 
   public void deposit( double depositAmount ) {
+    if (depositAmount>0){
     balance = balance + depositAmount;
+  }
   }
 
   public boolean withdraw( double withdrawAmount ) {
