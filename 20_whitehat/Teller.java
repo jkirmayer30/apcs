@@ -1,3 +1,10 @@
+/*
+Apcs homework 20
+Jacob Kirmayer
+disco:none
+qcc:none
+*/
+
 public class Teller{
   public static void main(String[] args){
     BankAccount apple = new BankAccount();
