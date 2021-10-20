@@ -34,9 +34,12 @@ public class Stats {
     return Math.sqrt(a*b);
   }
 
-  // public static int max(int a, int b, int c) {
-  //
-  // }
+  public static int max(int a, int b, int c) {
+    int maximum = a;
+    if (b>a){
+      maximum = b;
+    }
+  }
   //
   // public static double max(double a, double b, double c) {
   //
@@ -47,12 +50,6 @@ public class Stats {
   // }
   //
   // public static double geoMean(double a, double b, double c) {
-  //
-  // }
-  //
-  //
-  // //main method for testing functionality
-  // public static void main( String[] args ) {
   //
   // }
 
