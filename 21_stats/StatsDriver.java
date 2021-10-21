@@ -17,8 +17,14 @@ public class StatsDriver{
     System.out.println(Stats.max(4,4));//4
     System.out.println(Stats.max((double) 21,(double) 34)); //34
     System.out.println(Stats.max((double) 21,(double) 21)); //21
+    System.out.println(Stats.max(2,4,8));//8
+    System.out.println(Stats.max(4,4,4));//4
+    System.out.println(Stats.max((double) 21,(double) 34, (double) 15)); //34
+    System.out.println(Stats.max((double) 21,(double) 21,(double) 21)); //21
     System.out.println(Stats.geoMean(16,4)); //8
     System.out.println(Stats.geoMean((double) 12,(double)3 )); //6
+    System.out.println(Stats.geoMean(16,4,64)); //16
+    System.out.println(Stats.geoMean((double) 12,(double)3 ,(double) 6)); //6
     System.out.println(Stats.geoMean((double) -12,(double)3 )); //imaginary or error
   }
 }

@@ -36,21 +36,36 @@ public class Stats {
 
   public static int max(int a, int b, int c) {
     int maximum = a;
-    if (b>a){
+    if (b>maximum){
       maximum = b;
     }
+    if (c>maximum){
+      maximum = c;
+    }
+
+    return maximum;
   }
-  //
-  // public static double max(double a, double b, double c) {
-  //
-  // }
-  //
-  // public static int geoMean(int a, int b, int c) {
-  //
-  // }
-  //
-  // public static double geoMean(double a, double b, double c) {
-  //
-  // }
+  
+  public static double max(double a, double b, double c) {
+    double maximum = a;
+    if (b>maximum){
+      maximum = b;
+    }
+    if (c>maximum){
+      maximum = c;
+    }
+
+    return maximum;
+  }
+  
+  public static int geoMean(int a, int b, int c) {
+    double product = (a*b*c);
+    double res =  Math.cbrt(product);
+    return (int) res ;
+  }
+  
+  public static double geoMean(double a, double b, double c) {
+    return Math.cbrt(a*b*c);
+  }
 
 }//end class
