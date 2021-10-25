@@ -2,8 +2,10 @@
 /**
    Jacob Kirmayer
    APCS
-   HW20 --
+   HW21 --
    2021-10-21
+disco: static methods are methods of a class
+qcc: none
    xtra: harmonic mean is the reciprocal of the
    arithmetic mean of the reciprocals
  **/
