@@ -47,7 +47,7 @@ public class Stats {
 
     return maximum;
   }
-  
+
   public static double max(double a, double b, double c) {
     double maximum = a;
     if (b>maximum){
@@ -59,13 +59,13 @@ public class Stats {
 
     return maximum;
   }
-  
+
   public static int geoMean(int a, int b, int c) {
     double product = (a*b*c);
     double res =  Math.cbrt(product);
     return (int) res ;
   }
-  
+
   public static double geoMean(double a, double b, double c) {
     return Math.cbrt(a*b*c);
   }
