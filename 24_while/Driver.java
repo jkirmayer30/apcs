@@ -1,3 +1,10 @@
+/*
+APCS
+Jacob Kirmayer
+10/25
+time spent: 40 mins of class and 5min at home
+*/
+
 
 public class Driver {
 
