@@ -1,3 +1,9 @@
+/*
+APCS
+Jacob Kirmayer and Prattay Dey
+10/25
+time spent: 2 mins of class and 10min at home
+*/
 public class Fence{
   public static String fenceW(int fences){
     int built = 1;
