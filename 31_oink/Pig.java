@@ -1,34 +1,20 @@
-/***
- * Clyde "Thluffy" Sinclair
- * APCS
- * HW31 --
- * 2021-11-04r
- * time spent: _hrs
- *
- * class Pig
- * a Pig Latin translator
- * ~~~~~~~~~~~~~~~~~~~ SKELETON ~~~~~~~~~~~~~~~~~~~
- *           9
- *     ,--.-'-,--.
- *     \  /-~-\  /
- *    / )' a a `( \
- *   ( (  ,---.  ) )
- *    \ `(_o_o_)' /
- *     \   `-'   /
- *      | |---| |
- *      [_]   [_]
- *      PROTIP: Make this class compilable first,
- *      then develop and test one method at a time.
- *      NEVER STRAY TOO FAR FROM COMPILABILITY/RUNNABILITY!
- ***/
-
 /*
-DISCOS:
-QCCs:
+JPH -- Hugo Jenkins, Prattay Dey, Jacob Kirmayer
+APCS
+HW 31 -- ?
+2021-11-02
+time spent: 0.5 hours
+DISCO:
+The distinction between equals() and == for strings is important because the same string can be
+stored in different places
+QCC:
+How can we determine the cases in which a for loop works better than a for loop 
+for string operations
 */
 public class Pig
 {
   //Q: How does this initialization make your life easier?
+  // It provides a list of vowels if we choose to read it, also we know it can't change
   private static final String VOWELS = "aeiou";
 
 
