@@ -4,12 +4,12 @@ APCS
 HW 31 -- ?
 2021-11-02
 time spent: 0.5 hours
-DISCO:
-The distinction between equals() and == for strings is important because the same string can be
-stored in different places
-QCC:
-How can we determine the cases in which a for loop works better than a for loop 
-for string operations
+DISCOS:
+- Our initial attempts had many out-of-bounds errors during for loops, as our code allowed the index to exceed the array length.
+- When trying to isolate a specific character in a string using subset(), the syntax is s.subset(char, char + 1) -- NOT simply s.subset(char)
+QCCs:
+- How would our methods be different if they took in a char input rather than a String?
+
 */
 public class Pig
 {
