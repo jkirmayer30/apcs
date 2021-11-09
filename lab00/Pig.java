@@ -13,6 +13,12 @@ TO DO LIST:
 1) Ensure there are no errors in current code.
 2) Test punctuation functionality.
 3) Create method to separate each word of a sentence to use as an input for the translator and combine outputs to creat fully translated sentence.
+
+new in v3:
+input stream functionality
+
+We utilized scanner demo to learn the scanner class and input stream and used the 
+while loop in our project
 */
 import java.util.Scanner;
 public class Pig {
