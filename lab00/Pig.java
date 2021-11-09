@@ -97,19 +97,19 @@ public class Pig {
     precondition: letter.length() == 1
     **/
   public static boolean isAVowel( String letter) {
-    return VOWELS.indexOf( letter ) != -1;
+    return hasA(VOWELS, letter );
   }
 
-  public static boolean hasVowelY( String w) {
-    int idx = w.indexOf("y");
-    if (idx==w.length()-1){return true;}
-    if (idx>0){
-      if (!isAVowel(w.substring(idx-1,idx))&&(!isAVowel(w.substring(idx+1,idx+2)))){
-        return true;
-      }
-    }
-    return false;
-  }
+  // public static boolean hasVowelY( String w) {
+  //   int idx = w.indexOf("y");
+  //   if (idx==w.length()-1){return true;}
+  //   if (idx>0){
+  //     if (!isAVowel(w.substring(idx-1,idx))&&(!isAVowel(w.substring(idx+1,idx+2)))){
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
 
 
   /**
@@ -141,7 +141,7 @@ public class Pig {
     **/
   public static boolean hasAVowel( String w ) {
 
-    return countVowels(w) >= 0;
+    return countVowels(w) > 0;
   }
 
 
@@ -173,8 +173,8 @@ public class Pig {
   public static String firstVowel( String w ) {
 
     String ans = "";
-
-    if ( hasAVowel(w) ) //Q: Why this necess?
+    if ( hasAVowel(w) ) 
+    //Q: Why this necess? A: to prevent having a string with no length from being read at index 0.
       ans = allVowels(w).substring(0,1);
 
     return ans;
@@ -202,15 +202,16 @@ public class Pig {
   public static String engToPig( String w ) {
     String ans = "";
     int idxOfSpc = w.indexOf(" ");
+    if (w.length()==0){
+      return "";
+    }
     if(idxOfSpc>-1){
       return (engToPig(w.substring(0,idxOfSpc))+" "+engToPig(w.substring(idxOfSpc+1)));
     }
 
     if (beginsWithUpper(w)){
       String lower = w.toLowerCase();
-      System.out.println(lower);
-      String result = engToPig(lower);
-      System.out.println(result);
+      String result = engToPig(lower);;
       String newRes = (result.substring(0,1)).toUpperCase()+result.substring(1);
       return newRes;
     }
@@ -239,13 +240,16 @@ public class Pig {
 
 
   public static void main( String[] args ) {
-
-    for( String word : args ) {
-      System.out.println( "allVowels \t" + allVowels(word) );
-      System.out.println( "firstVowels \t" + firstVowel(word) );
-      System.out.println( "countVowels \t" + countVowels(word) );
-      System.out.println( "engToPig \t" + engToPig(word) );
-      System.out.println( "---------------------" );
+    Scanner inputStream = new Scanner(System.in);
+    while ( inputStream.hasNext()) {
+      String word = inputStream.nextLine();
+      if (word.length()>0){
+        System.out.println( "allVowels \t" + allVowels(word) );
+        System.out.println( "firstVowels \t" + firstVowel(word) );
+        System.out.println( "countVowels \t" + countVowels(word) );
+        System.out.println( "engToPig \t" + engToPig(word) );
+        System.out.println( "---------------------" );
+      }
     }
 
   }//end main()

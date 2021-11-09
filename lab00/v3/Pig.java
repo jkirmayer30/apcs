@@ -1,19 +1,25 @@
 /*
-JPH -- Hugo Jenkins, Prattay Dey, Jacob Kirmayer
+Oinkin' Monkes -- Prattay Dey, Jacob Kirmayer, Jeffery Tang
 APCS
-HW 31 -- ?
-2021-11-02
+L00 -- Pig Latin Translator
+2021-11-08
 time spent: 0.5 hours
 DISCOS:
 - Our initial attempts had many out-of-bounds errors during for loops, as our code allowed the index to exceed the array length.
 - When trying to isolate a specific character in a string using subset(), the syntax is s.subset(char, char + 1) -- NOT simply s.subset(char)
 QCCs:
 - How would our methods be different if they took in a char input rather than a String?
-
+TO DO LIST:
+1) Ensure there are no errors in current code.
+2) Test punctuation functionality.
+3) Create method to separate each word of a sentence to use as an input for the translator and combine outputs to creat fully translated sentence.
+new in v3:
+input stream functionality
 */
+import java.util.Scanner;
 public class Pig {
 
-  private static final String VOWELS = "aeiou";
+  private static final String VOWELS = "aeiouAEIOU";
   private static final String CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   private static final String PUNCS = ".,:;!?";
 
@@ -43,8 +49,6 @@ public class Pig {
 /*=====================================
   boolean hasPunc(String) -- tells whether a String contains punctuation
   pre:  w != null
-  post: hasPunc(“cat.”) -> true
-        hasPunc(“cat”) -> false
   =====================================*/
   public static boolean hasPunc( String w ) {
     for (int idx =0;idx<w.length();idx++){
@@ -62,9 +66,8 @@ public class Pig {
   post: beginsWithUpper("Apple") -> true
         beginsWithUpper("apple") -> false
   =====================================*/
-public static boolean beginsWithUpper( String w ) {
-
-return isUpperCase(w.substring(0,1) );
+  public static boolean beginsWithUpper( String w ) {
+    return isUpperCase(w.substring(0,1) );
 }
 
 
@@ -95,9 +98,20 @@ return isUpperCase(w.substring(0,1) );
     boolean isAVowel(String) -- tells whether a letter is a vowel
     precondition: letter.length() == 1
     **/
-  public static boolean isAVowel( String letter ) {
-    return VOWELS.indexOf( letter ) != -1;
+  public static boolean isAVowel( String letter) {
+    return hasA(VOWELS, letter );
   }
+
+  // public static boolean hasVowelY( String w) {
+  //   int idx = w.indexOf("y");
+  //   if (idx==w.length()-1){return true;}
+  //   if (idx>0){
+  //     if (!isAVowel(w.substring(idx-1,idx))&&(!isAVowel(w.substring(idx+1,idx+2)))){
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
 
 
   /**
@@ -128,6 +142,7 @@ return isUpperCase(w.substring(0,1) );
     hasAVowel("zzz") -> false
     **/
   public static boolean hasAVowel( String w ) {
+
     return countVowels(w) > 0;
   }
 
@@ -160,8 +175,8 @@ return isUpperCase(w.substring(0,1) );
   public static String firstVowel( String w ) {
 
     String ans = "";
-
-    if ( hasAVowel(w) ) //Q: Why this necess?
+    if ( hasAVowel(w) ) 
+    //Q: Why this necess? A: to prevent having a string with no length from being read at index 0.
       ans = allVowels(w).substring(0,1);
 
     return ans;
@@ -187,29 +202,56 @@ return isUpperCase(w.substring(0,1) );
     engToPig("java")   --> "avajay"
     **/
   public static String engToPig( String w ) {
-
     String ans = "";
+    int idxOfSpc = w.indexOf(" ");
+    if (w.length()==0){
+      return "";
+    }
+    if(idxOfSpc>-1){
+      return (engToPig(w.substring(0,idxOfSpc))+" "+engToPig(w.substring(idxOfSpc+1)));
+    }
 
-    if ( beginsWithVowel(w) )
-      ans = w + "way";
+    if (beginsWithUpper(w)){
+      String lower = w.toLowerCase();
+      String result = engToPig(lower);;
+      String newRes = (result.substring(0,1)).toUpperCase()+result.substring(1);
+      return newRes;
+    }
 
+    if ( beginsWithVowel(w) ) {
+      if (hasPunc(w)) {
+        String p = w.substring(w.length()-1, w.length());
+        ans = w.substring(0, w.length()-1) + "way" + p;
+      } else {
+        ans = w + "way";
+      }
+    }
     else {
-      int vPos = w.indexOf( firstVowel(w) );
-      ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
+      if (hasPunc(w)) {
+        String p = w.substring(w.length()-1, w.length());
+        int vPos = w.indexOf( firstVowel(w) );
+        ans = w.substring(vPos, w.length()-1) + w.substring(0,vPos) + "ay" + p;
+      } else {
+        int vPos = w.indexOf( firstVowel(w) );
+        ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
+    }
     }
 
     return ans;
-  }
+}
 
 
   public static void main( String[] args ) {
-
-    for( String word : args ) {
-      System.out.println( "allVowels \t" + allVowels(word) );
-      System.out.println( "firstVowels \t" + firstVowel(word) );
-      System.out.println( "countVowels \t" + countVowels(word) );
-      System.out.println( "engToPig \t" + engToPig(word) );
-      System.out.println( "---------------------" );
+    Scanner inputStream = new Scanner(System.in);
+    while ( inputStream.hasNext()) {
+      String word = inputStream.nextLine();
+      if (word.length()>0){
+        System.out.println( "allVowels \t" + allVowels(word) );
+        System.out.println( "firstVowels \t" + firstVowel(word) );
+        System.out.println( "countVowels \t" + countVowels(word) );
+        System.out.println( "engToPig \t" + engToPig(word) );
+        System.out.println( "---------------------" );
+      }
     }
 
   }//end main()
