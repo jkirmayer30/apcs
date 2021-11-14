@@ -19,6 +19,8 @@ input stream functionality
 
 We utilized scanner demo to learn the scanner class and input stream and used the 
 while loop in our project
+
+The error in the demo scanner occurs because hasNext() is not checked before calling next() the second time in the while loop's procedure, and the number of words is odd.
 */
 import java.util.Scanner;
 public class Pig {
