@@ -11,7 +11,6 @@
  * QCC: Will the = operator point to anything with a specified memory location?
  *****************************************************/
 
-import java.util.Arrays;
 public class Slots {
 
 	//instance variable to represent master copy for slot machine
@@ -133,12 +132,12 @@ public class Slots {
 		Slots machine02 = new Slots();
 		//test to verify slot machines function indepently
 		System.out.println();
-		System.out.println( "Machine01 initial state:\t" + Arrays.toString(machine01._fruits) );
+		System.out.println( "Machine01 initial state:\t" + machine01 );
 		System.out.println( "Machine02 initial state:\t" + machine02 );
 		
 		System.out.println( "\nSpinning machine01...\n" );
 		machine01.swap(0,5);
-		System.out.println( "Machine01 state:\t" + Arrays.toString(machine01._fruits) );
+		System.out.println( "Machine01 state:\t" + machine01 );
 		System.out.println( "Machine02 state:\t" + machine02 );
 		System.out.println();
 		
@@ -149,7 +148,7 @@ public class Slots {
 		
 		int tries = 20;
 		while( machine01.miniWin() == false &&tries>0) {
-		  System.out.println( "Your spin..." + "\t" +Arrays.toString(machine01._fruits) );
+		  System.out.println( "Your spin..." + "\t" +machine01 );
 		  System.out.println( "LOSE\n" );
 		  machine01.spinOnce();
 		  tries--;
