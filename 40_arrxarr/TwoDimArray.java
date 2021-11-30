@@ -1,13 +1,16 @@
-/******************************
- * class TwoDimArray
- * (skeleton)
- * practice working with 2D arrays
- ******************************/
+/*
+JWJ (Jefford Shau, Jacob Kirmayer, William Vongphanith)
+APCS
+HW40 -- Demand A Raise
+2021-11-29
+*/
 
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// HW40 -- 2D arrays
-// 2021-11-30
+/*
+DISCO:
+  0. Successfully incorporated for and foreach loop to print and sum methods.
+QCC:
+  0. How do you add the commas and the array brackets to the print statement without adding a helper method?
+  */
 
 public class TwoDimArray
 {
@@ -15,13 +18,13 @@ public class TwoDimArray
   //          uses a FOR loop
   public static void print1( int[][] a )
   {
-    for (int[] subarray: a){
-    	
-    	for (int elem : subarray){
-    		System.out.print(elem);
-    		System.out.print(" ");
-    	}
-    	System.out.println();
+    String totalArray = "";
+    for(int rows = 0; rows < a.length; rows++) {
+      for (int idx = 0; idx < a[rows].length; idx++) {
+        System.out.print(a[rows][idx]);
+        System.out.print(" ");
+      }
+      System.out.println();
     }
   }
 
@@ -31,7 +34,6 @@ public class TwoDimArray
   public static void print2( int[][] a )
   {
     for (int[] subarray: a){
-    	
     	for (int elem : subarray){
     		System.out.print(elem);
     		System.out.print(" ");
@@ -41,16 +43,40 @@ public class TwoDimArray
   }
 
 
+  //postcond: returns sum of all items in 2D int array a
+  public static int sum1( int[][] a )
+  {
+    int totalSum = 0;
+    for(int[] rows:a) {
+      for(int elements:rows) {
+        totalSum += elements;
+      }
+    }
+    return totalSum;
+  }
+
+
+  //postcond: returns sum of all items in 2D int array a
+  //          * uses helper fxn sumRow
+  public static int sum2( int [][] m )
+  {
+    int totalSum = 0;
+    for(int rows = 0; rows < m.length; rows++) {
+      totalSum += sumRow(rows, m);
+    }
+    return totalSum;
+  }
+
+
   //postcond: returns sum of all items on row r of 2D int array a
   //          uses a FOR loop
   public static int sumRow( int r, int[][] a )
   {
-  	int summer = 0;
-    for (int idx = 0 ; idx<a[r].length();idx++){
-    	summer+=elem
+    int rSum = 0;
+    for(int idx = 0; idx < a[r].length; idx++) {
+      rSum += a[r][idx];
     }
-    return summer;
-    // YOUR IMPLEMENTATION HERE
+    return rSum;
   }
 
 
@@ -60,32 +86,8 @@ public class TwoDimArray
   {
     // *** YOUR IMPLEMENTATION HERE ***
     int summer = 0;
-    for (int elem : m[r]){
-    	summer+=elem
-    }
-    return summer;
-  }
-  
-  //postcond: returns sum of all items in 2D int array a
-  public static int sum1( int[][] a )
-  {
-  int summer = 0;
-     for (int[] subarray: a){
-    	for (int elem : subarray){
-    		summer+=elem;
-    	}
-    }
-    return summer;
-  }
-
-
-  //postcond: returns sum of all items in 2D int array a
-  //          * uses helper fxn sumRow
-  public static int sum2( int [][] m )
-  {
-    int summer = 0;
-     for (int idx= 0 ; idx<m.length() ; idx++){
-    	summer+=sumRow(idx,m);
+    for(int idx:m[r]) {
+      summer += idx;
     }
     return summer;
   }
@@ -93,7 +95,6 @@ public class TwoDimArray
 
   public static void main( String [] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       int [][] m1 = new int[4][2];
       int [][] m2 = { {2,4,6}, {3,5,7} };
       int [][] m3 = { {2}, {4,6}, {1,3,5} };
@@ -111,6 +112,7 @@ public class TwoDimArray
       System.out.println("sum m1 : " + sum2(m1));
       System.out.println("sum m2 : " + sum2(m2));
       System.out.println("sum m3 : " + sum2(m3));
+      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     // your own custom test cases welcomed and encouraged
