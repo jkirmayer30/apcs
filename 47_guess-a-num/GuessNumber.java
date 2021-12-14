@@ -1,8 +1,9 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+
+// JWJ (Jefford Shau, Wililam Vongphanith, Jacob Kirmayer)
+// APCS
 // HW47 -- ?
-// 2021-12-15w
-// time spent: _ hrs
+// 2021-12-14
+// time spent: 0.5_ hrs
 
 /***
  * class GuessNumber -- fun fun fun!
@@ -21,7 +22,9 @@
 
 /***
     DISCO:
+	0.Planning on paper is important. It helped us before coding.  
     QCC:
+	0.What if the number inputted is out of the guess range? 
  ***/
 import java.util.Scanner;
 
