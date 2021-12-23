@@ -100,19 +100,15 @@ public class Rational {
       _q = tempDenom;
     }
 
-    public int compareTo(Object rational) {
-      double floatVal = floatValue();
-      double ratVal = ((Rational) rational).floatValue();
-      if ((floatVal < 0 && ratVal > 0) || (floatVal > 0 && ratVal < 0)) {
-        
-      }
-      if (floatVal > ratVal) {
-        return 1;
-      } else if (floatVal == ratVal) {
-        return 0;
-      } else {
-        return -1;
-      }
+    public int compareTo(Object obj) {
+        Rational rational = (Rational) obj;
+        System.out.println(this._p);
+        System.out.println(this._q);
+        System.out.println(rational._p);
+        System.out.println(rational._q);
+        int productVal = (this._p * rational._q) - (this._q * rational._p);
+        System.out.println(productVal);
+        return productVal*this._q*rational._q;
     }
 
 

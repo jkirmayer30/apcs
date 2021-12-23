@@ -20,7 +20,7 @@ public class Driver {
       Rational rat = new Rational(1, 2);
       Rational rate = new Rational(3, 5);
       Rational ratio = new Rational(10, 13);
-      Rational improper = new Rational (2, 1);
+      Rational improper = new Rational (3, 1);
       Rational racket = new Rational(1, 2);
       Rational sub1 = new Rational(4, 5);
       Rational sub2 = new Rational(2, 3);
@@ -34,12 +34,13 @@ public class Driver {
       System.out.println(ratio.toString() + " Should be 10/26");
       System.out.println(ratio.gcd() + " Should be 2");
       ratio.reduce();
-      System.out.println(ratio.toString() + " Should be 5/13");
-      rate.add(improper);
-      System.out.println(rate.toString() + " Should be 13/5");
+      System.out.println(ratio.toString() + " Should be 10/39");
+      rate.add(sub2);
+      System.out.println(rate.toString() + " Should be 19/15");
       sub1.subtract(sub2);
       System.out.println(sub1.toString() + " Should be 2/15");
-      System.out.println(rate.equals(rations) + " Should be false");
+      System.out.println(rate.compareTo(improper) + " Should be negative");
+      System.out.println(rate.compareTo(sub2) + " Should be positive");
       System.out.println(rate.equals(rat) + " Should be false");
   }
 
