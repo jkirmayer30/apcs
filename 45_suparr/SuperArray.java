@@ -81,7 +81,7 @@ public class SuperArray implements ListInt
 
 
     //inserts an item at index
-    public void add( int index, int newVal )
+    public boolean add( int index, int newVal )
     {
         int[] temp = new int[ _data.length + 1 ];
         for (int i = 0; i < index; i++) {
@@ -93,12 +93,13 @@ public class SuperArray implements ListInt
         }
         _data = temp;
         _size += 1;
+        return true;
     }
 
 
     //removes the item at index
     //shifts elements left to fill in newly-empted slot
-    public void remove( int index )
+    public boolean remove( int index )
     {
         int[] temp = new int[ _data.length - 1 ];
         for (int i = 0; i < index; i++) {
@@ -109,6 +110,7 @@ public class SuperArray implements ListInt
         }
         _data = temp;
         _size -= 1;
+        return true;
     }
 
 
@@ -122,7 +124,8 @@ public class SuperArray implements ListInt
     //main method for testing
     public static void main( String[] args )
     {
-        SuperArray curtis = new SuperArray();
+    	/*
+        ListInt curtis = new SuperArray();
         System.out.println( "Printing empty SuperArray curtis..." );
         System.out.println( curtis );
         for( int i = 0; i < curtis._data.length; i++ ) {
@@ -137,7 +140,8 @@ public class SuperArray implements ListInt
             System.out.println("new length of underlying array: "
                     + curtis._data.length );
         }
-        SuperArray mayfield = new SuperArray();
+        */
+        ListInt mayfield = new SuperArray();
         System.out.println("Printing empty SuperArray mayfield...");
         System.out.println(mayfield);
         mayfield.add(5);
