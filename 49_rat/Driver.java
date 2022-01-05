@@ -23,7 +23,7 @@ public class Driver {
       Rational improper = new Rational (3, 1);
       Rational racket = new Rational(1, 2);
       Rational sub1 = new Rational(4, 5);
-      Rational sub2 = new Rational(2, 3);
+      Rational sub2 = new Rational(2, -3);
       Integer rations = new Integer(5);
 
       System.out.println(rat.floatValue() + " Should be 0.5");

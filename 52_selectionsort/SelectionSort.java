@@ -67,18 +67,18 @@ public class SelectionSort
     //maxPos will point to position of SELECTION (greatest value)
 
     for( int pass = 1; pass<=data.size();pass++ ) {
-      System.out.println( "\nbegin pass " + (data.size()-pass) );//diag
+      System.out.println( "\nbegin pass " + (pass) );//diag
       int maxPos=0;
-      for(int idx = 0;idx<data.size()-pass;idx++) {
+      for(int idx = 0;idx<=data.size()-pass;idx++) {
         System.out.println( "maxPos: " + maxPos );//diag
         System.out.println( data );//diag
-        if (data.get(maxPos).compareTo(data.get(idx))>0){
+        if (data.get(maxPos).compareTo(data.get(idx))<0){
           maxPos = idx;
         }
       }
       Comparable temp = data.get(maxPos);
       data.set(maxPos,data.get(data.size()-pass));
-      data.set(data.size()-pass,temp)
+      data.set(data.size()-pass,temp);
 
       System.out.println( "after swap: " +  data );//diag
     }
@@ -107,7 +107,7 @@ public class SelectionSort
   public static void main( String [] args )
   {
 
-    /*===============for VOID methods=============
+/*
     ArrayList glen = new ArrayList<Integer>();
     glen.add(7);
     glen.add(1);
@@ -121,9 +121,7 @@ public class SelectionSort
     System.out.println( "ArrayList coco before sorting:\n" + coco );
     selectionSortV(coco);
     System.out.println( "ArrayList coco after sorting:\n" + coco );
-      ============================================*/
-
-    /*==========for AL-returning methods==========
+    */
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
       glen.add(1);
@@ -141,8 +139,6 @@ public class SelectionSort
       System.out.println( "sorted version of ArrayList coco:\n"
       + cocoSorted );
       System.out.println( "ArrayList coco after sorting:\n" + coco );
-      System.out.println( coco );
-      ============================================*/
 
   }//end main
 
