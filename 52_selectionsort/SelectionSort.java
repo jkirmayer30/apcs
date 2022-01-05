@@ -1,17 +1,17 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// Jacob Kirmayer
+// APCS pd6
 // HW52 -- implementing selection sort
 // 2022-01-05w
-// time spent:  hrs
+// time spent: 0.1 hrs
 
 /******************************
  *   class SelectionSort -- implements SelectionSort algorithm
  *
- * ALGO:
+ * ALGO: Find the biggest element that hasnt been found yet, put it at the end, rinse and repeat
  *
- * DISCO
+ * DISCO: SelectionSort has been discovered
  *
- * QCC
+ * QCC: maybe implementing this recursively would be cleaner
  * q0: How many passes to sort n elements?
  * a0:n-1
  * q1: What do you know after pass p?
