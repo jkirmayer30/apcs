@@ -1,27 +1,28 @@
-// Clyde "Thluffy" Sinclair
+// Jacob Kirmayer
 // APCS pd0
 // HW53 -- implementing insertion sort
 // 2022-01-06r
-// time spent:  hrs
+// time spent: 0.1 hrs
 
 /******************************
  * class InsertionSort -- implements InsertionSort algorithm
  *
  * ALGO:
- *
- * DISCO
- *
- * QCC
+ * Start a partition at one end of the AL, bring the next element directly beside the partition to it's sorted position
+ * within the partition. Repeat
+ * DISCO:
+ * Insertion sort is used in poker
+ * QCC: Maybe this one would also be clean with recursion
  * q0: How many passes to sort n elements?
- * a0:
+ * a0: n-1
  * q1: What do you know after pass p?
- * a1:
+ * a1: The first p+1 elements are sorted
  * q2: How will you know when sorted?
- * a2:
- * q3: What constitues a pass?
- * a3:
+ * a2: When n-1 passes have been completed
+ * q3: What constitutes a pass?
+ * a3: Taking an element from outside of the partition and sorting it amongst the elements within the partitioned area.
  * q4: What must you track?
- * a4:
+ * a4: The position of the element as it traverses the partitioned section
  ******************************/
 
 
