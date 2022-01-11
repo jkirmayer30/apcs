@@ -52,6 +52,7 @@ public class SuperArray implements ListInt
     //accessor -- return value at specified index
     public int get( int index )
     {
+    //O(1)
         return _data[index];
     }
 
@@ -60,6 +61,7 @@ public class SuperArray implements ListInt
     //           return old value at index
     public int set( int index, int newVal )
     {
+    //O(1)
         int temp = _data[index];
         _data[index] = newVal;
         _size += 1;
@@ -69,12 +71,8 @@ public class SuperArray implements ListInt
     //adds an item after the last item
     public boolean add( int newVal )
     {
-        int[] temp = new int[ _size + 1 ];
-        for (int i = 0; i < _size; i++) {
-            temp[i] = _data[i];
-        }
-        temp[temp.length - 1] = newVal;
-        _data = temp;
+    //O(1)
+        _data[_size] = newVal;
         _size += 1;
         return true;
     }
@@ -82,7 +80,9 @@ public class SuperArray implements ListInt
 
     //inserts an item at index
     public boolean add( int index, int newVal )
-    {
+    {  
+    //O(n
+    )
         int[] temp = new int[ _data.length + 1 ];
         for (int i = 0; i < index; i++) {
             temp[i] = _data[i];
@@ -101,6 +101,7 @@ public class SuperArray implements ListInt
     //shifts elements left to fill in newly-empted slot
     public boolean remove( int index )
     {
+    //O(n)
         int[] temp = new int[ _data.length - 1 ];
         for (int i = 0; i < index; i++) {
             temp[i] = _data[i];
