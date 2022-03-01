@@ -21,7 +21,7 @@ public class MergeSort
     int aIdx = 0;
     int bIdx = 0;
     for (int i = 0; i<a.length+b.length;i++){
-      if (bIdx>=b.length||a[aIdx]<b[bIdx]){
+      if (bIdx>=b.length||(aIdx<a.length&&a[aIdx]<b[bIdx])){
         newList[aIdx+bIdx] = a[aIdx];
         aIdx ++;
       }
@@ -44,302 +44,61 @@ public class MergeSort
     if (arr.length>1){
       int[] arr1 = new int[arr.length/2];
       int[] arr2 = new int[(arr.length+1)/2];
+      for (int idx = 0;idx<arr.length;idx++){
+        if (idx<arr.length/2){
+            arr1[idx] = arr[idx];
+        } else {
+           arr2[idx-(arr.length/2)] = arr[idx];
+        }
+      }
       return merge(sort(arr1),sort(arr2));
     } else {return arr;}
 
   }//end sort()
 
 
+ //-------------------HELPERS-------------------------
+  //tester function for exploring how arrays are passed
+  //usage: print array, mess(array), print array. Whaddayasee?
+  public static void mess( int[] a ) {
+    for( int i = 0 ; i<a.length; i++ )
+      a[i] = 0;
+  }
 
-//   //-------------------HELPERS-------------------------
-//   //tester function for exploring how arrays are passed
-//   //usage: print array, mess(array), print array. Whaddayasee?
-//   public static void mess( int[] a ) {
-//     for( int i = 0 ; i<a.length; i++ )
-//       a[i] = 0;
-//   }
-//
-//   //helper method for displaying an array
-//   public static void printArray( int[] a ) {
-//     System.out.print("[");
-//     for( int i : a )
-//       System.out.  public static int[] sort( int[] arr )
-//   {
-//
-//   }//end sort()
-//
-//
-//
-//   //-----------  public static int[] sort( int[] arr )
+  //helper method for displaying an array
+  public static void printArray( int[] a ) {
+    System.out.print("[");
+    for( int i : a )
+      System.out.print( i + ",");
+    System.out.println("]");
+  }
+  //---------------------------------------------------
+
+
+  //main method for testing
+  public static void main( String [] args )
   {
+      int[] arr0 = {0};
+      int[] arr1 = {1};
+      int[] arr2 = {1,2};
+      int[] arr3 = {3,4};
+      int[] arr4 = {1,2,3,4};
+      int[] arr5 = {4,3,2,1};
+      int[] arr6 = {9,42,17,63,0,512,23};
+      int[] arr7 = {9,42,17,63,0,9,512,23,9};
+      System.out.println("\nTesting mess-with-array method...");
+      printArray( arr3 );
+      mess(arr3);
+      printArray( arr3 );
+      System.out.println("\nMerging arr1 and arr0: ");
+      printArray( merge(arr1,arr0) );
+      System.out.println("\nMerging arr4 and arr6: ");
+      printArray( merge(arr4,arr6) );
+      System.out.println("\nSorting arr4-7...");
+      printArray( sort( arr4 ) );
+      printArray( sort( arr5 ) );
+      printArray( sort( arr6 ) );
+      printArray( sort( arr7 ) );
+  }//end main()
 
-  }//end sort()
-
-
-
-//   //-------------------HELPERS-------------------------
-//   //tester function for exploring how arrays are passed
-//   //usage: print array, mess(array), print array. Whaddayasee?
-//   public static void mess( int[] a ) {
-//     for( int i = 0 ; i<a.length; i++ )
-//       a[i] = 0;
-//   }
-//
-//   //helper method for displaying an array
-//   public static void printArray( int[] a ) {
-//     System.out.print("[");
-//     for( int i : a )
-//       System.out.  public static int[] sort( int[] arr )
-//   {
-//
-//   }//end sort()
-//
-//
-//
-//   //-------------------HELPERS-------------------------
-//   //tester function for exploring how arrays are passed
-//   //usage: print array, mess(array), print array. Whaddayasee?
-//   public static void mess( int[] a ) {
-//     for( int i = 0 ; i<a.length; i++ )
-//       a[i] = 0;
-//   }
-// print( i + ",");
-//     System.out.println("]");
-//   }
-//   //---------------------------------------------------
-//
-//
-//   //main method for testing
-//   public static void main( String [] args )
-//   {
-//     /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
-//       int[] arr0 = {0};
-//       int[] arr1 = {1};
-//       int[] arr2 = {1,2};
-//       int[] arr3 = {3,4};
-//       int[] arr4 = {1,2,3,4};
-//       int[] arr5 = {4,3,2,1};
-//       int[] arr6 = {9,42,17,63,0,512,23};
-//       int[] arr7 = {9,42,17,63,0,9,512,23,9};
-//
-//       System.out.println("\nTesting mess-with-array method...");
-//       printArray( arr3 );
-//       mess(arr3);
-//       printArray( arr3 );
-//
-//       System.out.println("\nMerging arr1 and arr0: ");
-//       printArray( merge(arr1,arr0) );
-//
-//       System.out.println("\nMerging arr4 and arr6: ");
-//       printArray( merge(arr4,arr6) );
-//
-//       System.out.println("\nSorting arr4-7...");
-//       printArray( sort( arr4 ) );
-//       printArray( sort( arr5 ) );
-//       printArray( sort( arr6 ) );
-//       printArray( sort( arr7 ) );
-//       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-//   }//end main()
-//   {
-
-  }//end sort()
-
-// }//end class MergeSort
-// --------HELPERS-------------------------
-// //   //tester function for exploring how arrays are passed
-// //   //usage: print array, mess(array), print array. Whaddayasee?
-// //   public static void mess( int[] a ) {
-// //     for( int i = 0 ; i<a.length; i++ )
-// //       a[i] = 0;
-// //   }
-// // print( i + ",");
-// //     System.out.println("]");
-// //   }
-// //   //---------------------------------------------------
-// //
-// //
-// //   //main method for testing
-// //   public static void main( String [] args )
-// //   {
-// //     /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
-// //       int[] arr0 = {0};
-// //       int[] arr1 = {1};
-// //       int[] arr2 = {1,2};
-// //       int[] arr3 = {3,4};
-// //       int[] arr4 = {1,2,3,4};
-// //       int[] arr5 = {4,3,2,1};
-// //       int[] arr6 = {9,42,17,63,0,512,23};
-// //       int[] arr7 = {9,42,17,63,0,9,512,23,9};
-// //
-// //       System.out.println("\nTesting mess-with-array me  /******************************************************
-   * int[] sort(int[])
-   * Sorts input array using mergesort algorithm
-   * Returns       if (a[aIdx]<b[bIdx]){
-        newList[aIdx+bIdx] = a[aIdx];
-        aIdx ++;
-      }sorted version of input array (ascending)
-   ******************************************************/
-//   public static int[] sort( int[] arr )
-//   {
-//
-//   }//end sort()
-//
-//
-//
-//   //-------------------HELPERS-------------------------
-//   //tester function for exploring how arrays are passed
-//   //usage: print array, mess(array), print array. Whaddayasee?
-//   public static void mess( int[] a ) {
-//     for( int i = 0 ; i<a.length; i++ )
-//       a[i] = 0;
-//   }
-//
-//   //helper method for displaying an array
-//   public static void printArray( int[] a ) {
-//     System.out.print("[");
-//     for( int i : a )
-//       System.out.  public static int[] sort( int[] arr )
-//   {
-//
-//   }//end sort()
-//
-//
-//
-//   //-----------  public static int[] sort( int[] arr )
-  // {
-  //
-  // }//end sort()
-
-
-
-//   //-------------------HELPERS-------------------------
-//   //tester function for exploring how arrays are passed
-//   //usage: print array, mess(array), print array. Whaddayasee?
-//   public static void mess( int[] a ) {
-//     for( int i = 0 ; i<a.length; i++ )
-//       a[i] = 0;
-//   }
-//
-//   //helper method for displaying an array
-//   public static void printArray( int[] a ) {
-//     System.out.print("[");
-//     for( int i : a )
-//       System.out.  public static int[] sort( int[] arr )
-//   {
-//
-//   }//end sort()
-//
-//
-//
-//   //-------------------HELPERS-------------------------
-//   //tester function for exploring how arrays are passed
-//   //usage: print array, mess(array), print array. Whaddayasee?
-//   public static void mess( int[] a ) {
-//     for( int i = 0 ; i<a.length; i++ )
-//       a[i] = 0;
-//   }
-// print( i + ",");
-//     System.out.println("]");
-//   }
-//   //---------------------------------------------------
-//
-//
-//   //main method for testing
-//   public static void main( String [] args )
-//   {
-//     /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
-//       int[] arr0 = {0};
-//       int[] arr1 = {1};
-//       int[] arr2 = {1,2};
-//       int[] arr3 = {3,4};
-//       int[] arr4 = {1,2,3,4};
-//       int[] arr5 = {4,3,2,1};
-//       int[] arr6 = {9,42,17,63,0,512,23};
-//       int[] arr7 = {9,42,17,63,0,9,512,23,9};
-//
-//       System.out.println("\nTesting mess-with-array method...");
-//       printArray( arr3 );
-//       mess(arr3);
-//       printArray( arr3 );
-//
-//       System.out.println("\nMerging arr1 and arr0: ");
-//       printArray( merge(arr1,arr0) );
-//
-//       System.out.println("\nMerging arr4 and arr6: ");
-//       printArray( merge(arr4,arr6) );
-//
-//       System.out.println("\nSorting arr4-7...");
-//       printArray( sort( arr4 ) );
-//       printArray( sort( arr5 ) );
-//       printArray( sort( arr6 ) );
-//       printArray( sort( arr7 ) );
-//       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-//   }//end main()
-//
-// }//end class MergeSort
-// --------HELPERS-------------------------
-// //   //tester function for exploring how arrays are passed
-// //   //usage: print array, mess(array), print array. Whaddayasee?
-// //   public static void mess( int[] a ) {
-// //     for( int i = 0 ; i<a.length; i++ )
-// //       a[i] = 0;
-// //   }
-// // print( i + ",");
-// //     System.out.println("]");
-// //   }
-// //   //---------------------------------------------------
-// //
-// //
-// //   //main method for testing
-// //   public static void main( String [] args )
-// //   {
-// //     /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
-// //       int[] arr0 = {0};
-// //       int[] arr1 = {1};
-// //       int[] arr2 = {1,2};
-// //       int[] arr3 = {3,4};
-// //       int[] arr4 = {1,2,3,4};
-// //       int[] arr5 = {4,3,2,1};
-// //       int[] arr6 = {9,42,17,63,0,512,23};
-// //       int[] arr7 = {9,42,17,63,0,9,512,23,9};
-// //
-// //       System.out.println("\nTesting mess-with-array method...");
-// //       printArray( arr3 );
-// //       mess(arr3);
-// //       printArray( arr3 );
-// //
-// //       System.out.println("\nMerging arr1 and arr0: ");
-// //       printArray( merge(arr1,arr0) );
-// //
-// //       System.out.println("\nMerging arr4 and arr6: ");
-// //       printArray( merge(arr4,arr6) );
-// //
-// //       System.out.println("\nSorting arr4-7...");
-// //       printArray( sort( arr4 ) );
-// //       printArray( sort( arr5 ) );
-// //       printArray( sort( arr6 ) );
-// //       printArray( sort( arr7 ) );
-// //       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-// //   }//end main()
-// //
-// // }//end class MergeSort
-thod...");
-// //       printArray( arr3 );
-// //       mess(arr3);
-// //       printArray( arr3 );
-// //
-// //       System.out.println("\nMerging arr1 and arr0: ");
-// //       printArray( merge(arr1,arr0) );
-// //
-// //       System.out.println("\nMerging arr4 and arr6: ");
-// //       printArray( merge(arr4,arr6) );
-// //
-// //       System.out.println("\nSorting arr4-7...");
-// //       printArray( sort( arr4 ) );
-// //       printArray( sort( arr5 ) );
-// //       printArray( sort( arr6 ) );
-// //       printArray( sort( arr7 ) );
-// //       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-// //   }//end main()
-// //
-// // }//end class MergeSort
+}//end class MergeSort

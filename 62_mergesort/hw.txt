@@ -1,0 +1,10 @@
+For each list, the height of the diagram is the amount of times we can
+divide the sub-lists in half, multiplied by 2 because we need to assemble 
+the list back together. The amount of times we need to halve the list before
+we are left with only sorted lists of length 1 can be quantified for a list
+of length x. This quantity should be the least integer value greater than log
+base 2 of x. In each row of the diagram, every element in the starting
+collection is either put into a smaller or larger array, which must be done in
+linear time, since every element needs to be processed as part of a loop. 
+Multiplying these two factors together, we find that the execution time must
+be on the order of nlog(n) for a dataset of size n. 
