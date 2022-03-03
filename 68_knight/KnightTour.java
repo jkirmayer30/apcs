@@ -74,7 +74,7 @@ public class KnightTour
 
       //display board
 //      System.out.println( tf );
-      tf.findTour( 2, 2, 0 );
+      tf.findTour( 2, 3, 0 );
       System.out.println( tf );
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -174,8 +174,8 @@ class TourFinder
 
     //if a tour has been completed, stop animation
     if ( moves== Math.pow(_board.length-4,2) ) {
-//      System.out.println( this ); //refresh screen
-//      System.out.println("reached end");
+      System.out.println( this ); //refresh screen
+      System.out.println("reached end");
       System.out.println(System.currentTimeMillis()-start);
       System.exit(0);
       return;
@@ -205,8 +205,8 @@ class TourFinder
       //If made it this far, path did not lead to tour, so back up...
       // (Overwrite number at this cell with a 0.)
       _board[x][y] = 0;
-//      System.out.println( this );
       if (moves==0){
+        System.out.println( this );
         System.out.println(System.currentTimeMillis()-start);
         System.exit(0);
       }
