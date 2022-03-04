@@ -5,6 +5,12 @@
 // time spent:  hrs
 
 /***
+ *
+ * Team Bob -- Jacob Kirmayer, Brian Kang, Michael Kamela
+ * APCS pd6
+ * HW70
+ * 2022-03-02t
+ * time spent: 0.3 hrs
  * SKEELTON for
  * class MazeSolver
  * Implements a blind depth-first exit-finding algorithm.
@@ -15,12 +21,13 @@
  * (mazefile is ASCII representation of a maze, using symbols below)
  *
  * ALGORITHM for finding exit from starting position:
- *  <INSERT YOUR SUMMARY OF ALGO HERE>
- *
+ *  1. Go down path until dead end or finish line found
+ *  2. Check another path if that doesnt work
+ *  3. Rinse and repeat
  * DISCO
- * 
+ *  The @ signs were just used to show the actual path taken by the character
  * QCC
- * 
+ *  How much faster can we solve a problem of this type?
  ***/
 
 //enable file I/O
