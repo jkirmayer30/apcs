@@ -149,6 +149,7 @@ class MazeSolver
     else {
 	_maze[x][y] = '@';
     System.out.println( this ); //refresh screen
+	delay(50);
 	solve(x+1,y); 
 	solve(x-1,y);
 	solve(x,y+1);
@@ -156,6 +157,7 @@ class MazeSolver
       _maze[x][y] = '.';
 
       System.out.println( this ); //refresh screen
+	delay(50);
     }
   }
 
