@@ -13,12 +13,12 @@
  * (generated with boxes -- boxes -a c d scroll <<< "design")
  */
 
-// Uses the LLNode class from HW75 to construct the Linked List class.
+// Uses the DLLNode class from HW75 to construct the Linked List class.
 // Note: I made the cargo and next variables public because I accidentally used the variables instead of the getter methods and refactoring would take a lot of time.
 
 public class LList implements List {
     // Instance vars
-    private LLNode head;
+    private DLLNode head;
     private int size;
 
     // Constructor
@@ -29,7 +29,10 @@ public class LList implements List {
 
     // This adds to the beginning, but all the methods in the class behave as if it was adding to the end.
     public boolean add (String s) {
-        this.head = new LLNode(s,this.head,null);
+        this.head = new DLLNode(s,this.head,null);
+        if (size>0) {
+            this.head.next.setPrev(this.head);
+        }
 	    size++;
 	    return true;
     }
@@ -38,7 +41,7 @@ public class LList implements List {
         if (index < 0 || index >= size) {
             return null;
         }
-        LLNode curr = head;
+        DLLNode curr = head;
         for (int i = 0; i < index; i++) {
             curr = curr.next;
         }
@@ -49,7 +52,7 @@ public class LList implements List {
         if (index < 0 || index >= size) {
             return null;
         }
-        LLNode curr = head;
+        DLLNode curr = head;
         for (int i = 0; i < index; i++) {
             curr = curr.next;
         }
@@ -65,7 +68,7 @@ public class LList implements List {
         if (index < 0 || index >= size) {
             return null;
         }
-        LLNode curr = head;
+        DLLNode curr = head;
         for (int i = 0; i < index-1; i++) {
             curr = curr.next;
         }
@@ -84,7 +87,7 @@ public class LList implements List {
     // Other methods not in interface
     public String toString() {
         String result = "";
-        LLNode curr = head;
+        DLLNode curr = head;
         result += "["+curr.cargo+" -> ";
         curr = curr.next;
         while (curr != null) {
@@ -99,7 +102,7 @@ public class LList implements List {
         if (index < 0 || index >= size) {
             return false;
         }
-        LLNode curr = head;
+        DLLNode curr = head;
         if (index==0){
             this.add(s);
             return true;
@@ -107,59 +110,7 @@ public class LList implements List {
         for (int i = 0; i < index-1; i++) {
             curr = curr.next;
         }
-        curr.next = new LLNode(s, curr,curr.next);
+        curr.next = new DLLNode(s, curr.next,curr);
         return true;
-    }
-
-    // Main method for testing
-    public static void main(String[] args) {
-        LList tongueTwister = new LList();
-        String[] words = "Imagine an imaginary menagerie manager managing an imaginary menagerie".split(" ");
-        for (int i = 0; i < words.length; i++) {
-            tongueTwister.add(words[i]);
-        }
-        System.out.println(tongueTwister);
-
-        LList getTest = new LList();
-        for (int i = 0; i < 18; i++) {
-            getTest.add(i + "");
-        }
-
-        System.out.println("The element at index 0 is " + getTest.get(0));
-        System.out.println("The element at index 1 is " + getTest.get(1));
-        System.out.println("The element at index 5 is " + getTest.get(5));
-        System.out.println("The element at index 17 is " + getTest.get(17));
-
-        System.out.println(getTest);
-
-        LList setTest = new LList();
-        for (int i = 0; i < 18; i++) {
-            setTest.add(i + "");
-        }
-
-        System.out.println("The element at index 0 is currently " + setTest.get(0));
-        System.out.println("The element at index 0 is now " + setTest.set(0, "13"));
-        System.out.println("The element at index 3 is currently " + setTest.get(3));
-        System.out.println("The element at index 3 is now " + setTest.set(3, "e"));
-        System.out.println("The element at index 17 is currently " + setTest.get(17));
-        System.out.println("The element at index 17 is now " + setTest.set(17, "a picture of a dog"));
-
-        System.out.println(setTest);
-
-        LList removeTest = new LList();
-        for (int i = 0; i < 18; i++) {
-            removeTest.add(i + "");
-        }
-
-        System.out.println("The element at index 0 is currently " + removeTest.get(0));
-        removeTest.remove(0);
-        System.out.println("The element at index 0 is now " + removeTest.get(0));
-        System.out.println("The element at index 1 is currently " + removeTest.get(1));
-        removeTest.remove(1);
-        System.out.println("The element at index 1 is now " + removeTest.get(1));
-        System.out.println("The element at index 5 is currently " + removeTest.get(5));
-        removeTest.remove(5);
-        System.out.println("The element at index 5 is now " + removeTest.get(5));
-        System.out.println(removeTest);
     }
 }

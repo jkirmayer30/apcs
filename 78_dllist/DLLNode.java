@@ -1,17 +1,17 @@
 /***
- * class LLNode
+ * class DLLNode
  * Implements a node, for use in lists and other container classes.
  * Stores its data as a String
  **/
 
-public class LLNode
+public class DLLNode
 {
     //instance vars
     public String cargo;
-    public LLNode next;
-    public LLNode prev;
+    public DLLNode next;
+    public DLLNode prev;
     // constructor
-    public LLNode( String _value, LLNode _next ,LLNode _prev)
+    public DLLNode( String _value, DLLNode _next ,DLLNode _prev)
     {
         this.cargo = _value;
         this.next = _next;
@@ -25,12 +25,12 @@ public class LLNode
         return cargo;
     }
 
-    public LLNode getNext()
+    public DLLNode getNext()
     {
         return next;
     }
     
-    public LLNode getPrev()
+    public DLLNode getPrev()
     {
         return prev;
     }
@@ -45,10 +45,16 @@ public class LLNode
         return newCargo;
     }
 
-    public LLNode setNext( LLNode newNext )
+    public DLLNode setNext( DLLNode newNext )
     {
         this.next = newNext;
         return newNext;
+    }
+
+    public DLLNode setPrev( DLLNode newPrev )
+    {
+        this.prev = newPrev;
+        return newPrev;
     }
     //--------------^  MUTATORS  ^--------------
 
@@ -67,16 +73,16 @@ public class LLNode
         //Below is an exercise in creating a linked list...
 
         //Create a node
-        LLNode first = new LLNode( "cat",null, null );
+        DLLNode first = new DLLNode( "cat",null, null );
 
         //Create a new node after the first
-        first.setNext( new LLNode( "dog", first,null ) );
+        first.setNext( new DLLNode( "dog", first,null ) );
 
         //Create a third node after the second
-        first.getNext().setNext( new LLNode( "cow", first.getNext(),null ) );
+        first.getNext().setNext( new DLLNode( "cow", first.getNext(),null ) );
 
         // Better traversal, doesn't garbage collect
-        LLNode current = first;
+        DLLNode current = first;
         while ( current != null )
         {
             System.out.println( current.getCargo() );
@@ -84,4 +90,4 @@ public class LLNode
         }
     }//end main
 
-}//end class LLNode
+}//end class DLLNode
