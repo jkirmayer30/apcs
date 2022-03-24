@@ -4,6 +4,7 @@
  * Stores its data as a T
  **/
 
+import java.util.Iterator;
 public class DLLNode<T>
 {
     //instance vars
@@ -28,6 +29,11 @@ public class DLLNode<T>
     public DLLNode getNext()
     {
         return next;
+    }
+
+    public DLLNode next()
+    {
+      return next;
     }
 
     public DLLNode getPrev()
