@@ -15,7 +15,6 @@
 
 // Uses the DLLNode<T> class from HW75 to construct the Linked List class.
 // Note: I made the cargo and next variables public because I accidentally used the variables instead of the getter methods and refactoring would take a lot of time.
-import java.util.Iterator;
 
 
 public class LList<T> implements List<T> {
@@ -37,10 +36,6 @@ public class LList<T> implements List<T> {
         }
 	    size++;
 	    return true;
-    }
-
-    public DLLNode iterator(){
-      return head;
     }
 
     public T get(int index) {
@@ -88,6 +83,10 @@ public class LList<T> implements List<T> {
         }
         size--;
         return old;
+    }
+
+    public LLIterator<T> iterator(){
+        return new LLIterator<T>(this);
     }
 
     // Other methods not in interface

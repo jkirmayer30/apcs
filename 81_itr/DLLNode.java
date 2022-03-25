@@ -26,17 +26,17 @@ public class DLLNode<T>
         return cargo;
     }
 
-    public DLLNode getNext()
+    public DLLNode<T> getNext()
     {
         return next;
     }
 
-    public DLLNode next()
+    public DLLNode<T>  next()
     {
       return next;
     }
 
-    public DLLNode getPrev()
+    public DLLNode<T>  getPrev()
     {
         return prev;
     }
@@ -51,13 +51,13 @@ public class DLLNode<T>
         return newCargo;
     }
 
-    public DLLNode setNext( DLLNode newNext )
+    public DLLNode<T>  setNext( DLLNode<T>  newNext )
     {
         this.next = newNext;
         return newNext;
     }
 
-    public DLLNode setPrev( DLLNode newPrev )
+    public DLLNode<T>  setPrev( DLLNode<T>  newPrev )
     {
         this.prev = newPrev;
         return newPrev;
