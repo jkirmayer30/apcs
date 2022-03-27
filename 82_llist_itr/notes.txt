@@ -1,0 +1,8 @@
+Jacob Kirmayer, Ari Gurovich, William Vongphanith
+APCS
+HW 82 -- Roll Your Own Iterator
+- Classes can implement interfaces from the java standard library
+- This can be used to bring custom classes into compliance as iterable collections
+- This allows the java forEach loop to operate on a linked list
+2022-03-27
+time spent: 0.4 hrs
