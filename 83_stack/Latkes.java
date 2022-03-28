@@ -15,7 +15,7 @@
 
 public class Latkes
 {
-  private String [] _stack;
+  private String[] _stack;
   private int _stackSize;
 
 
@@ -38,52 +38,41 @@ public class Latkes
       _stack = newArr;
     }
     _stackSize++;
-    _stack[_stackSize] = s;
+    _stack[_stackSize-1] = s;
   }
 
 
   //means of removal
   public String pop( )
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
+    if (_stackSize>0) {
+      String str = _stack[_stackSize - 1];
+      _stack[_stackSize - 1] = "";
+      _stackSize--;
+      return str;
+    } else {return null;}
+
   }// O(?)
 
 
   //chk for emptiness
   public boolean isEmpty()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
+    return _stackSize==0;
   }// O(?)
 
 
   //chk for fullness
   public boolean isFull()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
+    return _stack.length==_stackSize;
   }// O(?)
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
-
-    Latkes tastyStack = new Latkes(10);
+    Latkes tastyStack = new Latkes(5);
 
     tastyStack.push("aoo");
     tastyStack.push("boo");
@@ -121,11 +110,12 @@ public class Latkes
     //boo
     System.out.println( tastyStack.pop() );
     //aoo
+    System.out.println(tastyStack.isEmpty());
     System.out.println( tastyStack.pop() );
 
     //stack empty by now; SOP(null)
     System.out.println( tastyStack.pop() );
-      ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
+    System.out.println(tastyStack.isEmpty());
 
   }//end main()
 
