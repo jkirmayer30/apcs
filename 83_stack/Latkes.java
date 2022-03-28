@@ -1,15 +1,14 @@
 /***
- * class Latkes
- * v1
- * SKELETON
- * Implements a stack of Strings using an encapsulated array
+ * APCS Jacob Kirmayer, Ari Gurovich, William Vongphanith
+ * HW 83-- Stacks on Stacks
+ * time spent: 0.3 hrs
  **/
 
 /***
     DISCO
-
+      Why use this instead of a regular AL?
     QCC
-
+      What else should a stack be able to do?
  **/
 
 
