@@ -33,21 +33,26 @@ public class LatKtS
    **/
   public static boolean allMatched( String s )
   {
-    String result = "";
-    Latkes newStack = new Latkes(s.length());
+    Latkes unClosed = new Latkes(s.length());
     for (int i = 0; i<s.length(); i++){
-      newStack.push(s.substring(i, i+1));
+      String character = s.substring(i, i+1);
+      String popped = unClosed.pop();
+      if (popped==null) {
+        unClosed.push(character);
+      }else if ((!character.equals(")")&&popped.equals("("))||
+              (!character.equals("]")&&popped.equals("["))||
+              (!character.equals("}")&&popped.equals("{"))){
+        unClosed.push(popped);
+        unClosed.push(character);
+      }
     }
-    while (!newStack.isEmpty()){
-
-    }
+    return unClosed.isEmpty();
   }
 
 
   //main method to test
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
     System.out.println(flip("stressed"));
     System.out.println(allMatched( "({}[()])" )); //true
     System.out.println(allMatched( "([)]" ) ); //false
@@ -55,7 +60,6 @@ public class LatKtS
     System.out.println(allMatched( "](){([])}" ) ); //false
     System.out.println(allMatched( "(){([])}(" ) ); //false
     System.out.println(allMatched( "()[[]]{{{{((([])))}}}}" ) ); //true
-      ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
   }
 
 }//end class
