@@ -1,10 +1,15 @@
 /***
- * class LatKtS
- * SKELETON
- * driver class for Latkes
- * Uses a stack to reverse a text string, check for sets of matching parens.
+ * APCS Jacob Kirmayer, Ari Gurovich, William Vongphanith
+ * HW 84-- Stack: What is it good for?
+ * time spent: 0.3 hrs
  **/
 
+/***
+ DISCO
+ Practical use of stack: maintaining a stack of things that need to be closed/resolved during'
+ a traversal
+ QCC
+ **/
 public class LatKtS
 {
 
