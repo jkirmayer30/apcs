@@ -1,0 +1,8 @@
+APCS JAWS Jacob Kirmayer, Ari Gurovich, William Vongphanith
+HW 86-- What A Racket
+ time spent: 0.4 hrs
+
+DISCO: Two stacks are better than one if we need information before it appears
+on top of the stack.
+
+QCC: Is there an efficient way to use one stack that beats using two?
