@@ -1,6 +1,11 @@
 public class LLStack<PANCAKE>{
   LList<PANCAKE> _data;
   //Return true if this stack is empty, otherwise false.
+
+  public LLStack() {
+    _data = new LList<PANCAKE>();
+  }
+
   public boolean isEmpty(){return _data.size()==0;}
 
   //Return top element of stack without popping it.
@@ -10,9 +15,11 @@ public class LLStack<PANCAKE>{
 
   //Pop and return top element of stack.
   public PANCAKE pop(){
-    PANCAKE topCake = _data.get(0);
-    _data.removeFirst();
-    return topCake;
+    if (_data.size()>0) {
+      PANCAKE topCake = _data.get(0);
+      _data.removeFirst();
+      return topCake;
+    } else {return null;}
   }
 
   //Push an element onto top of this stack.
