@@ -7,10 +7,10 @@
 public class LLNode<T>
 {
     //instance vars
-    public String cargo;
+    public T cargo;
     public LLNode<T> next;
     // constructor
-    public LLNode( String value, LLNode<T> next )
+    public LLNode( T value, LLNode<T> next )
     {
         this.cargo = value;
         this.next = next;
@@ -18,7 +18,7 @@ public class LLNode<T>
 
 
     //--------------v  ACCESSORS  v--------------
-    public String getCargo()
+    public T getCargo()
     {
         return cargo;
     }
@@ -29,15 +29,6 @@ public class LLNode<T>
     }
     //--------------^  ACCESSORS  ^--------------
 
-
-    //--------------v  MUTATORS  v--------------
-    public String setCargo( String newCargo )
-    {
-        LLNode<T> temp = new LLNode<T>(this.cargo, this.next);
-        this.cargo = newCargo;
-        return newCargo;
-    }
-
     public LLNode<T> setNext( LLNode<T> newNext )
     {
         LLNode<T> temp = getNext();
@@ -45,12 +36,4 @@ public class LLNode<T>
         return newNext;
     }
     //--------------^  MUTATORS  ^--------------
-
-
-    // override inherited toString
-    public String toString()
-    {
-        return getCargo();
-    }
-
 }//end class LLNode<T>
