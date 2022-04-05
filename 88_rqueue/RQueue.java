@@ -1,6 +1,6 @@
 /***
  * APCS Jacob Kirmayer, Ari Gurovich, William Vongphanith
- * HW 87-- Queue
+ * HW 88-- RQueue
  * time spent: 0.3 hrs
  **/
 
