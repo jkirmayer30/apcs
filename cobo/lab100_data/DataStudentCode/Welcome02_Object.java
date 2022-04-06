@@ -27,12 +27,16 @@ public class Welcome02_Object {
       Observation ob3 = ds3.fetch("Observation", "weather", "temp_f", "wind_degrees");
       System.out.println(id3 + ": " + ob3);
       Observation coldest = ob1;
+      String loc = ds1.fetchString("location");
       if (ob2.colderThan(coldest)) {
          coldest=ob2;
+         loc = ds2.fetchString("location");
       }
       if (ob3.colderThan(coldest)){
         coldest = ob3;
+        loc = ds3.fetchString("location");
       }
+      System.out.println("coldest at "+loc);
    }
 }
 
