@@ -35,5 +35,7 @@ public class LLNode<T>
         this.next = newNext;
         return newNext;
     }
+
+    public void setCargo(T stuff){cargo = stuff;}
     //--------------^  MUTATORS  ^--------------
 }//end class LLNode<T>
