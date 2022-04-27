@@ -59,13 +59,16 @@ public class CelebrityGame
 	public void play()
 	{
 		long start = System.currentTimeMillis();
+		int points = 0;
 		while (_list.size()>0){
 			currentCelebrity = _list.get(0);
+			System.out.println((10000-(System.currentTimeMillis()-start))/1000+" sec remaining");
 			System.out.println(sendClue());
 			Scanner newScan = new Scanner(System.in);
 			String guess = newScan.nextLine();
 			if (System.currentTimeMillis()>start+10000){
 				System.out.println("time over, last guess not registered");
+				System.out.println(points + " points accumulated");
 				break;
 			}
 			if (processGuess(guess)){System.out.println("correct");}else {System.out.println("wrong");}
