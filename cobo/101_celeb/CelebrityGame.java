@@ -1,5 +1,6 @@
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Scanner;
+
 /**
  * The framework for the Celebrity Game project
  *
@@ -34,7 +35,7 @@ public class CelebrityGame
 	 */
 	 public void prepareGame()
  	{
- 		celebGameList = new ArrayList<Celebrity>();
+ 		_list = new ArrayList<Celebrity>();
  	}
 
 	/**
@@ -57,12 +58,18 @@ public class CelebrityGame
 	 */
 	public void play()
 	{
+		long start = System.currentTimeMillis();
 		while (_list.size()>0){
 			currentCelebrity = _list.get(0);
 			System.out.println(sendClue());
 			Scanner newScan = new Scanner(System.in);
 			String guess = newScan.nextLine();
-
+			if (System.currentTimeMillis()>start+10000){
+				System.out.println("time over, last guess not registered");
+				break;
+			}
+			if (processGuess(guess)){System.out.println("correct");}else {System.out.println("wrong");}
+			_list.remove(0);
 		}
 	}
 
@@ -135,4 +142,13 @@ public class CelebrityGame
 	{
 		return currentCelebrity.getAnswer();
 	}
+
+	public static void main(String[] args){
+    ArrayList<Celebrity> list = new ArrayList<Celebrity>();
+    for (int i = 0; i<10;i++){
+      list.add(new Celebrity("celebrity "+i,"hint "+i));
+    }
+    CelebrityGame game = new CelebrityGame(list);
+    game.play();
+  }
 }
