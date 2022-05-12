@@ -181,7 +181,7 @@ public class BST {
         if (stRoot.getRight()!=null){
             int rightHeight = height(stRoot.getRight());
             if (rightHeight>retVal){
-                retVal += rightHeight;
+                retVal = rightHeight;
             }
         }
         return retVal+1;
@@ -208,10 +208,38 @@ public class BST {
             return retVal;
     }
 
+    int greatestVal(TreeNode stRoot){
+        if (stRoot.getRight()==null)
+            return stRoot.getValue();
+        else
+            return greatestVal(stRoot.getRight());
+    }
+
+    int leastVal(TreeNode stRoot){
+        if (stRoot.getLeft()==null){
+            return stRoot.getValue();
+        }
+        else{
+            return leastVal(stRoot.getLeft());
+        }
+    }
+
     public String toString(){
+        if (_root==null)
+            return "";
         LinkedList<TreeNode> q = new LinkedList<TreeNode>();
         q.add(_root);
-        return toString(q,1,this.height());
+        int least = leastVal(_root);
+        int great = greatestVal(_root);
+        int leastLength = 1;
+        int greatLength = 1;
+        if (least<0) {
+            leastLength = (int) Math.log10(-1*least)+2;
+        }
+        if (great>0) {
+            greatLength = (int) Math.log10(great)+1;
+        }
+        return toString(q,1,this.height(),Math.max(leastLength,greatLength));
     }
 
     int findReplaceReturn(TreeNode stRoot,boolean rootGettingRemoved){
@@ -259,32 +287,59 @@ public class BST {
         }
     }
 
-    String toString(LinkedList<TreeNode> printQueue,int layerNum,int height){
+    String replace(String toModify,String newString,int startIdx){
+        return toModify.substring(0,startIdx)+newString+toModify.substring(startIdx+newString.length());
+    }
+
+    String toString(LinkedList<TreeNode> printQueue,int layerNum,int height,int maxStrLength){
         if (height==0){return "";}
         int printLen = printQueue.size();
-        int initialSpace = (int) Math.pow(2,height-layerNum)-1;
+        int initialSpace = ((int) Math.pow(2,height-layerNum)-1);
         String thisLayer = "";
-        for (int sp = 0;sp<initialSpace;sp++)
-            thisLayer+=" ";
+        String connectNext = "";
+        for (int sp = 0;sp<initialSpace*((int) Math.pow(2,maxStrLength-1));sp++) {
+            thisLayer += " ";
+        }
+        for (int sp = 0;sp<((int) Math.pow(2,height)-1)*((int) Math.pow(2,maxStrLength-1));sp++) {
+            connectNext += " ";
+        }
         for (int i = 0; i<printLen;i++){
             TreeNode item = printQueue.removeFirst();
+            int def = maxStrLength;
             if (item ==null){
-                thisLayer+=" ";
                 printQueue.addLast(null);
                 printQueue.addLast(null);
             } else {
                 thisLayer+=item.getValue();
+                int len;
+                if (item.getValue()<0) {
+                    len = (int) Math.log10(-1*item.getValue())+2;
+                }else if  (item.getValue()>0) {
+                    len = (int) Math.log10(item.getValue())+1;
+                }else {len = 1;}
+                def = maxStrLength-len;
+                String newString = "";
+                int linkLen = ((int) Math.pow(2,height-layerNum-1)-1)*((int) Math.pow(2,maxStrLength-1));
+                for (int sp = 0;sp<linkLen;sp++)
+                    newString+="-";
                 printQueue.addLast(item.getLeft());
+                if (item.getLeft()!=null) {
+                    connectNext = replace(connectNext, "/" + newString, thisLayer.length()-linkLen-2);
+                }
                 printQueue.addLast(item.getRight());
+                if (item.getRight()!=null) {
+                    connectNext = replace(connectNext,  newString+"\\", thisLayer.length());
+                }
             }
-            for (int sp = 0;sp<2*initialSpace+1;sp++)
+            for (int sp = 0;sp<def+((2*initialSpace+1)*((int) Math.pow(2,maxStrLength-1)));sp++)
                 thisLayer+=" ";
         }
         if (layerNum==height){return thisLayer;}
         else {
-            return thisLayer+"\n"+toString(printQueue,layerNum+1,height);
+            return thisLayer+"\n"+connectNext+"\n"+toString(printQueue,layerNum+1,height,maxStrLength);
         }
     }
+
 
     //main method for testing
     public static void main(String[] args) {
@@ -299,20 +354,25 @@ public class BST {
         arbol.insert( 5 );
         arbol.insert( 4 );
         arbol.insert( 6 );
-
+        arbol.insert(-2);
+        arbol.insert(9);
+        arbol.insert(7);
 
         //insering in this order will build a linked list to left
-        /*
-	arbol.insert( 6 );
-	arbol.insert( 5 );
-	arbol.insert( 3 );
-	arbol.insert( 4 );
-	arbol.insert( 2 );
-	arbol.insert( 1 );
-	arbol.insert( 0 );
-*/
 
-        System.out.println("got here");
+//	arbol.insert( 6 );
+//	arbol.insert( 5 );
+//	arbol.insert( 3 );
+//	arbol.insert( 4 );
+//	arbol.insert( 2 );
+//	arbol.insert( 1 );
+//	arbol.insert( 0 );
+
+
+        System.out.println("height");
+        System.out.println(arbol.height());
+        System.out.println("height");
+
         System.out.println( "tree after insertions:\n" + arbol );
         System.out.println();
 
