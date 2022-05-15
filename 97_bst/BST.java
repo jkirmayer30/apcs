@@ -357,6 +357,8 @@ public class BST {
         arbol.insert(-2);
         arbol.insert(9);
         arbol.insert(7);
+        arbol.insert(19);
+        arbol.insert(71);
 
         //insering in this order will build a linked list to left
 
