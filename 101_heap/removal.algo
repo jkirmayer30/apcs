@@ -1,0 +1,3 @@
+1. Take the node and swap it with its largest child.
+2. If the node is at a leaf, chop it off the tree.
+3. If it's not, repeat step 1
