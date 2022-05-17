@@ -1,0 +1,6 @@
+APCS pd6
+JAWS-- Jacob Kirmayer, Ari Gurovich, William Vongphanith
+time spent:0.3 hrs
+DISCO: Removal algorithm can be done by flushing values to the bottom of the
+tree
+QCC: Is there one "best" way to do the insertion algorithm

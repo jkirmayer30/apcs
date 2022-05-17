@@ -1,0 +1,4 @@
+APCS pd6
+JAWS: Jacob Kirmayer, Ari Gurovich, William Vongphanith
+time spent: 0.4 hrs
+DISCO: Organizing the queue in a decreasing way makes offloading the min value more efficient
