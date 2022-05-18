@@ -1,7 +1,9 @@
 /**
- * class ALHeap
- * SKELETON
- * Implements a min heap using an ArrayList as underlying container
+ * APCS pd6
+ * JAWS: Jacob Kirmayer, Ari Gurovich, William Vongphanith
+ * time spent: 0.8 hrs
+ * DISCO: Remove and add can be done in log time
+ * QCC: Is there a faster way to remove
  */
 
 import java.util.ArrayList;
@@ -74,7 +76,9 @@ public class ALHeap {
      * Inserts an element in the heap
      * Postcondition: Tree exhibits heap property.
      * ALGO:
-     * <your clear && concise procedure here>
+     * Add the value at the last idx in the AL
+     * Swap it with its parent if the parent is bigger
+     * Repeat
      */
     public void add(Integer addVal) {
         _heap.add(addVal);
@@ -96,7 +100,8 @@ public class ALHeap {
      * Postcondition: Tree maintains heap property.
      * ALGO:
      * Walk root down and keep swapping it with its smallest children until its at a leaf
-     * Swap that leaf with the last element of the
+     * Swap that leaf with the last element of the list. If it was the last element before the swap, stop here.
+     * If it wasn't, walk the swapped item up the tree
      */
     public Integer removeMin() {
         int idx = 0;
@@ -139,7 +144,7 @@ public class ALHeap {
         } else {
             return -1;
         }
-    }//O(?)
+    }//O(1)
 
 
     //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
