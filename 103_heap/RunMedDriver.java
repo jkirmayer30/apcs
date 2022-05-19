@@ -11,8 +11,11 @@
  * $ java RunMed < input.nums
  * (input.nums provided; must be in same dir)
  * -------------------------
- * Clyde "Thluffy" Sinclair
- * APCS
+ * APCS pd6
+ * JAWS: Jacob Kirmayer, Ari Gurovich, William Vongphanith
+ * time spent: 0.4 hrs
+ * DISCO: Maintaining 2 piles of size differing by at most 1 is the best way to do this, so we only have to perform a logn
+ * operation when we add certain items
  * 2018-05-17
  */
 
