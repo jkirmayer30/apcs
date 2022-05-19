@@ -103,27 +103,48 @@ public class ALHeap {
      * Swap that leaf with the last element of the list. If it was the last element before the swap, stop here.
      * If it wasn't, walk the swapped item up the tree
      */
-    public Integer removeMin() {
-        int idx = 0;
-        while (minChildPos(idx) > 0) {
-            swap(idx, minChildPos(idx));
-            idx = minChildPos(idx);
-        }
-        swap(idx, _heap.size() - 1);
-        if (idx != _heap.size() - 1){
-            int addVal = _heap.get(idx);
-            int currIdx = idx;
-            int parentPos = (currIdx - 1) / 2;
-            int parent = _heap.get(parentPos);
-            while (parent > addVal && currIdx > 0) {
-                swap(parentPos, currIdx);
-                currIdx = parentPos;
-                parentPos = (currIdx - 1) / 2;
-                parent = _heap.get(parentPos);
+    public Integer removeMin()
+    {
+        if ( _heap.size() == 0 )
+            return null;
+
+        //store root value for return at end of fxn
+        Integer retVal = peekMin();
+
+        //store val about to be swapped into root
+        Integer foo = _heap.get( _heap.size() - 1);
+
+        //swap last (rightmost, deepest) leaf with root
+        swap( 0, _heap.size() - 1 );
+
+        //lop off last leaf
+        _heap.remove( _heap.size() - 1);
+
+        // walk the now-out-of-place root node down the tree...
+        int pos = 0;
+        int minChildPos;
+
+        while( pos < _heap.size() ) {
+
+            //choose child w/ min value, or check for child
+            minChildPos = minChildPos(pos);
+
+            //if no children, then i've walked far enough
+            if ( minChildPos == -1 )
+                break;
+                //if i am less than my least child, then i've walked far enough
+            else if ( foo.compareTo( _heap.get(minChildPos) ) <= 0 )
+                break;
+                //if i am > least child, swap with that child
+            else {
+                swap( pos, minChildPos );
+                pos = minChildPos;
             }
         }
-        return _heap.remove(_heap.size() - 1);
+        //return removed value
+        return retVal;
     }//O(logn)
+
 
 
     /**

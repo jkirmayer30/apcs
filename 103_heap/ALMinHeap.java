@@ -16,7 +16,7 @@ public class ALMinHeap {
     /**
      * default constructor  ---  inits empty heap
      */
-    public ALHeap() {
+    public ALMinHeap() {
         _heap = new ArrayList<Integer>();
     }
 
@@ -167,7 +167,7 @@ public class ALMinHeap {
 
     //main method for testing
     public static void main(String[] args) {
-        ALHeap pile = new ALHeap();
+        ALMinHeap pile = new ALMinHeap();
         pile.add(2);
         System.out.println(pile);
         pile.add(4);
@@ -211,4 +211,4 @@ public class ALMinHeap {
         System.out.println(pile);
     }//end main()
 
-}//end class ALHeap
+}//end class ALMinHeap
